@@ -7,12 +7,17 @@ from src.final_project.data import noaa
 def create_holiday_dummies(date_range):
     cal = USFederalHolidayCalendar()
     holidays = cal.holidays(start=date_range[0], end=date_range[-1])
-    return pd.Series(date_range.isin(holidays).astype(int), index=date_range)
+    return pd.Series(
+        date_range.isin(holidays).astype(int),
+        name='is_holiday',
+        index=date_range
+    )
 
 
 def create_weekend_dummies(date_range):
     return pd.Series(
         date_range.dayofweek.isin([5, 6]).astype(int),
+        name='is_weekend',
         index=date_range
     )
 
