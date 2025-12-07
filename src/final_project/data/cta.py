@@ -1,7 +1,5 @@
-import geopandas as gpd
 import numpy as np
 import pandas as pd
-from src.final_project.config import CRS
 
 
 def aggregate_ridership(df):
@@ -29,10 +27,3 @@ def load_ridership(filename):
     df['date'] = pd.to_datetime(df['date'])
     df['rides'] = df['rides'].apply(lambda x: int(x.replace(',', '')))
     return df
-
-
-def read_geojson(filename):
-    gdf = gpd.read_file(filename)
-    gdf = gdf[[col for col in gdf.columns if not col.startswith(':')]]
-    gdf = gdf.to_crs(CRS)
-    return gdf
