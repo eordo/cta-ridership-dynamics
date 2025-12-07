@@ -9,13 +9,17 @@ def aggregate_ridership(df):
     start, end = total.index.min(), total.index.max()
     full_idx = pd.date_range(start, end, freq='D')
     total = total.reindex(full_idx, fill_value=np.nan)
+    total.index.name = 'date'
     return total
 
 
 def group_ridership(df, by):
     if by not in ('route', 'station'):
         raise ValueError('Must group by bus route or L station')
-    return {k: g[['date', 'rides']] for k, g in df.groupby(by)}
+    return {
+        k: g[['date', 'rides']].set_index('date')
+        for k, g in df.groupby(by)
+    }
 
 
 def load_ridership(filename):
