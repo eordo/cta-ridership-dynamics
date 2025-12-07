@@ -23,4 +23,5 @@ Weather data is queried through Meteostat and ultimately provided by the NOAA.
 
 **Weather**
 
-- [Chicago temperatures and precipitation, daily](https://meteostat.net/en/station/72530)
+- [O'Hare daily weather history](https://meteostat.net/en/station/72530)
+- [Midway daily weather history](https://meteostat.net/en/station/72534)
