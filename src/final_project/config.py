@@ -7,7 +7,7 @@ STATE_FIPS = '17'
 COUNTY_FIPS = '031'
 CENSUS_VARIABLES = {
     # Median household income
-    'B19013_001E': 'median_hh_inc',         # Median household income (real)
+    'B19013_001E': 'med_hh_income',         # Median household income (real)
     # Poverty rate
     'B17001_001E': 'poverty_total',         # Total (all)
     'B17001_002E': 'poverty_count',         # At or below poverty level
@@ -29,10 +29,11 @@ CENSUS_VARIABLES = {
     'B08301_010E': 'commute_transit',       # Public transit (excluding taxis)
     'B08301_021E': 'commute_wfh',           # Worked from home
     # For density calculations
-    'B01003_001E': 'total_pop',             # Population
+    'B01003_001E': 'total_population',      # Population
     'B25024_001E': 'total_housing',         # Total housing units
     'B25024_002E': 'housing_sfh_detached',  # Detached single-family homes
     'B25024_003E': 'housing_sfh_attached',  # Attached single-family homes
     'B25024_010E': 'housing_mobile',        # Mobile homes
     'B25024_011E': 'housing_other'          # Boats, RVs, etc.
 }
+ACS_SENTINEL_VALUE = -666666666
