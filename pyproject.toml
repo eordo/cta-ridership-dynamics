@@ -5,6 +5,8 @@ description = "CTA ridership dynamics"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "census>=0.8.24",
+    "dotenv>=0.9.9",
     "geopandas>=1.1.1",
     "matplotlib>=3.10.7",
     "meteostat>=1.7.6",
