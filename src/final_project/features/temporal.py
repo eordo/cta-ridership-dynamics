@@ -14,6 +14,16 @@ def create_holiday_dummies(date_range):
     )
 
 
+def create_month_dummies(date_range):
+    dummies = pd.get_dummies(
+        date_range.month,
+        drop_first=True,
+        prefix='month'
+    )
+    dummies.index = date_range
+    return dummies.astype(int)
+
+
 def create_weekend_dummies(date_range):
     return pd.Series(
         date_range.dayofweek.isin([5, 6]).astype(int),
