@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from census import Census
-from src.final_project.config import CENSUS_VARIABLES, STATE_FIPS, COUNTY_FIPS
+from final_project.config import CENSUS_VARIABLES, STATE_FIPS, COUNTY_FIPS
 
 
 CENSUS_API_KEY = os.getenv('CENSUS_API_KEY')

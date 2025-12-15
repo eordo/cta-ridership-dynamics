@@ -1,7 +1,7 @@
 import pandas as pd
 from pandas.tseries.holiday import USFederalHolidayCalendar
-from src.final_project.config import STATION_IDS
-from src.final_project.data import noaa
+from final_project.config import STATION_IDS
+from final_project.data import noaa
 
 
 def create_holiday_dummies(date_range):

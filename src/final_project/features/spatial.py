@@ -1,5 +1,5 @@
 import numpy as np
-from src.final_project.config import CENSUS_VARIABLES, ACS_SENTINEL_VALUE
+from final_project.config import CENSUS_VARIABLES, ACS_SENTINEL_VALUE
 
 
 def create_demographic_features(df):
