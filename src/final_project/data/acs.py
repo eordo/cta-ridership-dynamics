@@ -118,15 +118,19 @@ def compute_ratios(df):
         'mf_home': mfh
     }
 
-    cols_to_drop = ['age_18-34', 'age_85+', 'housing_sf', 'housing_mf']
+    cols_to_drop = [
+        'age_18-34', 'age_85+',
+        'housing_sf', 'housing_mf',
+        'agg_hh_income', 'agg_hh_count'
+    ]
     population_total = df['population_total']
     housing_total = df['housing_total']
-    median_hh_income = df['median_hh_income']
+    avg_hh_income = df['agg_hh_income'] / df['agg_hh_count']
     df = (df
           .drop(columns=list(CENSUS_VARIABLES.values()), errors='ignore')
           .drop(columns=cols_to_drop, errors='ignore')
           .assign(population_total=population_total)
           .assign(housing_total=housing_total)
-          .assign(median_hh_income=median_hh_income)
+          .assign(avg_hh_income=avg_hh_income)
           .assign(**ratio_cols))
     return df

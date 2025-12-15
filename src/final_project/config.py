@@ -47,8 +47,9 @@ CENSUS_VARIABLES = {
     'B03002_004E': 'race_nh_black',
     'B03002_006E': 'race_nh_asian',
     'B03002_012E': 'race_hispanic',
-    # Median household income
-    'B19013_001E': 'median_hh_income',      # Median household income (real)
+    # Mean household income
+    'B19025_001E': 'agg_hh_income',         # Aggregate household income
+    'B11001_001E': 'agg_hh_count',          # Aggregate household count
     # Poverty rate
     'B17001_001E': 'poverty_total',         # Total (all)
     'B17001_002E': 'poverty_count',         # At or below poverty level
