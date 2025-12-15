@@ -1,3 +1,12 @@
+from pathlib import Path
+
+
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+DATA_DIR = ROOT_DIR / 'data'
+RAW_DIR = DATA_DIR / 'raw'
+RIDERSHIP_DIR = DATA_DIR / 'ridership'
+FEATURES_DIR = DATA_DIR / 'features'
+IMAGES_DIR = ROOT_DIR / 'images'
 CRS = 26916
 STATION_IDS = {
     'ohare': '72530',
