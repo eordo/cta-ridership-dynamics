@@ -1,6 +1,7 @@
 # For Census API key
 .env
 .idea/
+**/.ipynb_checkpoints/
 **/__pycache__/
 data/raw/
 src/*.egg-info
