@@ -2,7 +2,19 @@
 
 This is a time series analysis of daily bus and rail ridership on the Chicago Transit Authority, from January 2001 to September 2025.
 
-_Note: This is a project-in-progress for a graduate course._
+_Note: This is a project-in-progress for my master's in data science._
+
+## Environment
+
+You must install all third-party and local dependencies to run the code.
+I recommend using [uv](https://docs.astral.sh/uv/):
+
+```bash
+git clone https://github.com/eordo/cta-ridership-dynamics.git
+cd cta-ridership-dynamics
+uv sync
+uv pip install -e .
+```
 
 ## Data
 

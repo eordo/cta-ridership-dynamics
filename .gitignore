@@ -1,2 +1,6 @@
 # For Census API key
 .env
+.idea/
+**/__pycache__/
+data/raw/
+src/*.egg-info
