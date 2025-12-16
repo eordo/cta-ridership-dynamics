@@ -79,3 +79,17 @@ CENSUS_VARIABLES = {
     'B25024_011E': 'housing_other'          # Boats, RVs, etc.
 }
 ACS_SENTINEL_VALUE = -666666666
+CA_LIST_DICT = {
+    'FAR NORTH SIDE': [1, 2, 3, 4, 9, 10, 11, 12, 13, 14, 76, 77],
+    'NORTHWEST SIDE': [15, 16, 17, 18, 19, 20],
+    'NORTH SIDE': [5, 6, 7, 21, 22],
+    'CENTRAL': [8, 32, 33],
+    'WEST SIDE': [23, 24, 25, 26, 27, 28, 29, 30, 31],
+    'SOUTH SIDE': [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 60, 69],
+    'SOUTHWEST SIDE': [56, 57, 58, 59, 61, 62, 63, 64, 65, 66, 67, 68],
+    'FAR SOUTHWEST SIDE': [70, 71, 72, 73, 74, 75],
+    'FAR SOUTHEAST SIDE': [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+}
+CA_TO_REGION = {
+    ca: region for region, ca_list in CA_LIST_DICT.items() for ca in ca_list
+}
