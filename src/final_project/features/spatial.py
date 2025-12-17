@@ -1,4 +1,11 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import geopandas as gpd
+import numpy as np
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from final_project.data import acs
 from final_project.utils import read_geojson
 
 
@@ -46,3 +53,35 @@ def load_ct_boundaries(filename):
     ct_gdf = ct_gdf[['geoid10', 'geometry']]
     ct_gdf = ct_gdf.rename(columns={'geoid10': 'geoid'})
     return ct_gdf
+
+
+def route_weighted_demographics(routes_gdf, ca_gdf):
+    routes_gdf['total_length'] = routes_gdf['geometry'].length
+    inter = gpd.overlay(routes_gdf, ca_gdf, how='intersection')
+    inter['intersecting_length'] = inter['geometry'].length
+    inter['w'] = inter['intersecting_length'] / inter['total_length']
+
+    var_cols = [col for col in ca_gdf.columns
+                if col not in ['ca_number', 'ca_name', 'geometry']]
+    for col in var_cols:
+        inter[col] *= inter['w']
+
+    df = inter.groupby('route')[var_cols].sum()
+    df = acs.compute_ratios(df)
+    return df
+
+
+def ses_index(df):
+    X = df[
+        ['avg_hh_income', 'poverty', 'has_undergrad_degree', 'has_grad_degree']
+    ].copy()
+    X = X.assign(log_income=np.log(X['avg_hh_income']))
+    X = X.drop(columns='avg_hh_income')
+
+    X_scaled = StandardScaler().fit_transform(X)
+    X_pca = PCA().fit_transform(X_scaled)
+
+    ses = (StandardScaler()
+            .fit_transform(X_pca[:,0].reshape(-1, 1))
+            .reshape(-1))
+    return ses
