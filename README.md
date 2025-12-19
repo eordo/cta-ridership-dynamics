@@ -1,8 +1,12 @@
-# CTA Ridership Dynamics
+# CTA Ridership Dynamics and Recovery
 
-This is a time series analysis of daily bus and rail ridership on the Chicago Transit Authority, from January 2001 to September 2025.
+This is my submission for the final project in HES CSCI 116 "Dynamic Modeling and Forecasting in Big Data."
 
-_Note: This is a project-in-progress for my master's in data science._
+Some of the raw data is too large to upload, so all data that is not queried via API is linked below instead.
+The processed ridership data and some intermediate engineered features are included.
+
+The notebooks outline the steps, rationale, and code used for the analysis and to create the figures.
+Run them in order to reproduce my report.
 
 ## Environment
 
